@@ -6,7 +6,6 @@ pipeline {
                 echo 'Building..'
                 sh ' rm -rf app'
                 sh 'git clone https://github.com/seunsmooth/ubuntu_toolbox.git app'
-                #sh "cd app && chmod 755 code_deploy.sh && ./code_deploy.sh"
                 
             }
         }
