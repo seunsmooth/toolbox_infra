@@ -2,7 +2,7 @@
 
 resource "aws_security_group" "sg-dev" {
   name        = "allow-ssh-dev"
-  vpc_id      = "${module.vpc.vpc_id}"
+  vpc_id      = module.vpc.vpc_id
   description = "toolbox security group allow ssh "
 
   ingress {
