@@ -1,18 +1,19 @@
 pipeline {
-    agent any     
-        stage ('Terraform code deploy') {
+    agent any 
+    stages {
+       stage('Build') {      
             steps {
-                echo "copying index file"
-                sh 'sudo cd app'
-                sh 'terraform init'
-                sh 'terraform plan -auto-approve'
-                sh  'terrafrom apply'
+
+                sh 'sudo terraform init'
+                sh 'sudo terraform plan -auto-approve'
+                sh  'sudo terrafrom apply -auto-approve'
             }
         }
-        stage ('Job done') {
-            steps {
+        
+            stage('Deploy') { 
+                 steps {
                 echo "task complete"
             }
         }
     }
-    
+   } 
