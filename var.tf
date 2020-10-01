@@ -26,25 +26,3 @@ variable "public_subnets" {
 variable "subnet_id" {
   default = "subnet-0ffbe71882deab7b5"
 }
-
-variable "white_listed_entrants" {
-  default = ["87.80.20.214/32", "0.0.0.0/0"]
-}
-
-variable "stack" {
-  description = "Name of the Stack"
-  default     = "terraform"
-}
-
-variable "ENV" {
-  default = "dev"
-
-}
-
-#variable "PATH_TO_PUBLIC_KEY" {
-#  default = "mykey.pub"
-#}
-#
-#variable "PATH_TO_PRIVATE_KEY" {
-#  default = "mykey"
-#}
