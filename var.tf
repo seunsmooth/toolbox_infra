@@ -8,7 +8,7 @@ variable "instance_count" {
 variable "instance_type" {
   default = "t2.micro"
 }
-variable "AMI_ID" {
+variable "ami" {
   default = "ami-06fd8a495a537da8b"
 }
 variable "vpc_cidr" {

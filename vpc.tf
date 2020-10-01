@@ -1,9 +1,10 @@
-module "vpc-dev" {
+module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
-  name   = "vpc-dev"
+  name   = "main-vpc"
   cidr   = "10.1.0.0/16"
 
-  azs                  = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
+  azs = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
+
   private_subnets      = var.private_subnets
   public_subnets       = var.public_subnets
   enable_ipv6          = false
