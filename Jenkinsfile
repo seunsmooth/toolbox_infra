@@ -4,7 +4,7 @@ pipeline {
         stage ('Code  pull from Github') {
             steps {
                 echo "Code Downloading"
-                git 'https://github.com/seunsmooth/ubuntu_toolbox.git'
+                sh ' git clone https://github.com/seunsmooth/ubuntu_toolbox.git app '
             }
         }
         stage ('approval process') {
@@ -22,6 +22,7 @@ pipeline {
         stage ('Terraform code deploy') {
             steps {
                 echo "copying index file"
+                sh 'sudo cd app'
                 sh 'terraform init'
                 sh 'terraform plan -auto-approve'
                 sh  'terrafrom apply'
