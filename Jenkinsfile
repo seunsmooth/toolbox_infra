@@ -1,28 +1,13 @@
 pipeline {
     agent any
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-                sh ' rm -rf app'
-                sh 'git clone https://github.com/seunsmooth/ubuntu_toolbox.git app'
-                
+        stage('Apply') {
+          environment  {
+             AWS_ACCESS_KEY_ID= credentials('ACCESS_KEY')
+             AWS_SECRET_ACCESS_KEY = credentials('SECRET_KEY)
             }
-        }
-        stage('build weather app Infrastructure') {
-            steps {
-                echo 'build Terraform infrastructure on AWS..'
-                sh  'cd app &&  terraform init && terraform apply -auto-approve'
-            }
-        }
-         stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+           steps {
+              sh  'terraform init && terraform apply -auto-approve'
             }
         }
     }
