@@ -5,7 +5,7 @@
 *.tfstate
 *.tfstate.*
 *backend.*
-*.belgium2
+*belgium2*
 # Crash log files
 crash.log
 
